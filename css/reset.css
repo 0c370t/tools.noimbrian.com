@@ -1,0 +1,21 @@
+/*
+	< < < Reset > > >
+
+	Stylesheet created by Brian Donald
+	Do not re-use or re-distribute without written permission.
+
+	Styles from this sheet are also used in magic.css; however I am attempting to make it less relevant through CSS Grid and the resets are still useful.
+*/
+:root{
+	font-size:12pt;
+}
+* {	/* Style Reset */
+		/* Sizing Fixes */
+	box-sizing: border-box;
+	margin:0;
+	padding:0;
+		/* Borders, Lists, Etc. */
+	border: none;
+	list-style: none;
+	text-decoration: none;
+}

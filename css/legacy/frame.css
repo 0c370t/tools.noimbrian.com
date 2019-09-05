@@ -1,0 +1,46 @@
+/*
+	Stylesheet by 0c370t, do not redistribute without written consent
+
+	Font sizes for this sheet are defined with vh units to help ease the transition across devices to a relative and appropriate size.
+*/
+
+/*** Global Styles ***/
+* {
+		/* More Accurate Sizing */
+		margin:0;
+		padding:0;
+		box-sizing:border-box;
+		/* If I wanted fancy things I'd give them fancy things */
+		border: none;
+		text-decoration:none;
+}
+main{
+	position:relative;
+}
+/*** Header Styles ***/
+header.grid{
+	position:relative;
+}
+/*** Navbar Styles ***/
+header.grid nav{
+	width:100vw;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+header.grid nav a, header.grid nav{
+		display:block;
+		float:right;
+		transition: background-color .5s;
+}
+header.grid nav a:hover{
+		transition: background-color .5s;
+}
+	/** Navbar Responsive Styles **/
+		/* Phones and Tablets that pretend to not be tablets */
+@media screen and (max-width:768px) and (min-resolution: 144dpi){ 
+	header.grid nav a, header.grid nav img#closeButton{
+		float:none;
+	}
+}
+/*** Body Styles ***/

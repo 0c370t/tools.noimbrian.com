@@ -1,0 +1,30 @@
+/*
+	Stylesheet by 0c370t, do not redistribute without written consent
+*/
+
+/*** Global Styles ***/
+body{
+	min-height:100vh;
+	position:relative;
+}
+main{
+		padding-bottom: 5vh;	/* This must match footer height */
+}
+main:after{
+	content:"";
+	clear:both;
+	display:table;
+}
+
+/*** Footer Styles ***/
+footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 5vh;				/* This must match main padding-bottom */
+	line-height: 5vh;
+	width: 100vw;
+}
+footer span.small{
+	font-size:.5em;
+}

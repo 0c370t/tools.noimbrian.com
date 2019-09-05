@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://tools.noimbrian.com/js/lib/jquery-3.3.1.js"></script>
+<title>The 90's web is the best web</title>
+<style>
+	body {
+		display:flex;
+		height:100vh;
+		justify-content:center;
+		align-items:center;
+		background-color:#222;
+	}
+	marquee {
+		font-size:2rem;
+		width:10em;
+		color:#DDD;
+		background-color:#111;
+		padding:2em 0;
+	}
+</style>
+</head>
+
+<body>
+<input id="marqueeMe" placeholder="Input Text"></input>
+<button id="actionButton">Go!</button>
+<script>
+function marqueethis(text){
+	marquee = document.createElement("marquee");
+	if(text && typeof(text) === "string"){
+		marquee.innerText = decodeURI(text);
+		document.body.appendChild(marquee);
+	}
+}
+marqueeText = location.search.substr(1)
+if(marqueeText){
+	// We've been given a text
+	$("#marqueeMe").remove()
+	$("#actionButton").remove()
+	marqueethis(marqueeText);
+}
+else {
+	// We haven't been given a text
+	$("#actionButton").click(function(){
+		window.location.search = "?" + $("#marqueeMe").val()
+	})
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+/*
+	Responsive Grid Sheet by 0c370t, do not redistribute without written consent
+*/
+
+body{
+	overflow-x:hidden;
+	width:100%;
+	min-height:100vh;
+}
+.grid{
+	display:inline-block;
+	box-sizing:border-box;
+	float:left;
+	padding:2vh 2vw;
+}
+.grid.right{
+	/* Used for tall columns on the right of the screen */
+	float:right;
+	clear:left;
+}
+.grid.responsiveRowStart{
+	clear:left;
+}
+.grid.responsiveRowStart-Desktop{
+	clear:left;
+}
+.grid.debug{
+	border:red solid 1px;
+}
+.grid.halfpad{
+	padding:1vh 1vw;
+}
+.row{
+	display:table;
+	width:100%;
+}
+.grid .row{
+	display:table-cell;
+}
+[class*="x-"] {
+	width: 100%;
+}
+.grid.nopad{
+	padding:0;
+}
+/* Phone Screen */
+@media screen and (max-width:768px) and (min-resolution: 144dpi){ /* Phones and Tablets that pretend to not be tablets */
+	.grid{
+		display:block;
+		padding: 2vh 5vw;
+	}
+}
+/* Tablet Screen */
+@media screen and (min-width:769px) and (max-width:1024px),(min-width:1024px) and (min-resolution: 144dpi){ 
+	.grid.x-1 {width:8.3%;}
+	.grid.x-2 {width:16.6%;}
+	.grid.x-3 {width:25%;}
+	.grid.x-4 {width:33.3%;}
+	.grid.x-5 {width:41.6%;}
+	.grid.x-6 {width:50%;}
+	.grid.x-7 {width:58.3%;}
+	.grid.x-8 {width:66.6%;}
+	.grid.x-9 {width:75%;}
+	.grid.x-10{width:83.3%;}
+	.grid.x-11{width:91.6%;}
+	.grid.x-12{width:100%;}
+
+	.grid.mx-1 {width:8.3%;}
+	.grid.mx-2 {width:16.6%;}
+	.grid.mx-3 {width:25%;}
+	.grid.mx-4 {width:33.3%;}
+	.grid.mx-5 {width:41.6%;}
+	.grid.mx-6 {width:50%;}
+	.grid.mx-7 {width:58.3%;}
+	.grid.mx-8 {width:66.6%;}
+	.grid.mx-9 {width:75%;}
+	.grid.mx-10{width:83.3%;}
+	.grid.mx-11{width:91.6%;}
+	.grid.mx-12{width:100%;}
+	.grid.responsiveRowStart-Desktop{clear:none;}
+}
+/* Desktop Screen */
+@media screen and (min-width:1024px) and (max-resolution: 144dpi){ /* Big Stuff */
+	.grid.x-1 {width:8.3%;}
+	.grid.x-2 {width:16.6%;}
+	.grid.x-3 {width:25%;}
+	.grid.x-4 {width:33.3%;}
+	.grid.x-5 {width:41.6%;}
+	.grid.x-6 {width:50%;}
+	.grid.x-7 {width:58.3%;}
+	.grid.x-8 {width:66.6%;}
+	.grid.x-9 {width:75%;}
+	.grid.x-10{width:83.3%;}
+	.grid.x-11{width:91.6%;}
+	.grid.x-12{width:100%;}
+}

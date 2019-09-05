@@ -1,0 +1,24 @@
+/*
+	Stylesheet by 0c370t, do not redistribute without written consent
+
+  Usage Structure
+  nav
+    element.dropBox
+      element onclick=showDrop(this)
+      ul.dropList
+*/
+nav div.dropBox{
+  float:left;
+  margin-right:1vw;
+}
+nav div.dropBox ul.dropList{
+  display:block;
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .5s;
+	text-decoration:none;
+	will-change:max-height;
+}
+nav div.dropBox ul.dropList li{
+	clear:both;
+}

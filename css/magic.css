@@ -1,0 +1,229 @@
+/*
+	< < < Magic > > >
+
+	Stylesheet created by Brian Donald
+	Do not re-use or re-distribute without written permission.
+
+	This is a remake of older stylesheets I've used to provide responsive functionality. 
+	Ideally this can be linked for the basic form/function of the webpage,
+		with a custom style.css being used to override/style as needed for each page. 
+	As such layout will have a rudimentary start, along with the tools needed to rearrange as needed per-project. 
+	Debug borders will also be placed around layout elements, these will need to be overriden.
+*/
+
+/*
+	Media Queries used in this sheet are :
+	Anything bigger than phone:
+		@media screen and (min-width:769px) and (max-resolution:143dpi)
+
+	Tablet / Phablet Screens:
+		@media screen and (min-width:769px) and (max-width:1024px),(min-width:1024px) and (min-resolution: 144dpi)
+
+	Desktop Only:
+		@media screen and (min-width:1025px) and (max-resolution: 143dpi)
+*/
+
+/******* Default Stylings *******/
+:root{
+	font-size:12pt;
+}
+* {	/* Style Reset */
+		/* Sizing Fixes */
+	box-sizing: border-box;
+	margin:0;
+	padding:0;
+		/* Borders, Lists, Etc. */
+	border: none;
+	list-style: none;
+	text-decoration: none;
+}
+/* 
+	z-index is used here to ensure the nav element draws over everything else
+	This is important if you are using navDrop elements, which will dangle over everything else;
+*/
+header{ position:relative;z-index:1; }
+nav{ position:relative;z-index:2; }
+main{	position:relative;z-index:1; }
+header h1{ font-size:3em; }
+header span.subheader{ font-size:1.5em; }
+.grid h2{	font-size:2em; }
+.grid span.subheader{
+	font-size:1.2em;
+	margin-bottom:1em;
+	display:block;
+}
+.grid p{ font-size:1em; }
+.grid.nopad {padding:0;}
+.grid.novpad {padding: 0 2vw;}
+.grid.nohpad {padding: 2vh 0;}
+.grid.halfpad {padding:1vh 1vw;}
+.grid.halfvpad{padding:1vh 2vw;}
+.grid.halfhpad{padding:2vh 1vw;}
+
+/******* Float Layout *******/
+body {
+	overflow-x: hidden; 			/* Ensure we don't get sloppy */
+	width:100%;								/* Allows us to use % based widths */
+}
+.grid{
+	border: red solid 1px;		/* Debugging */
+	padding: 2vh 2vw;					/* We can't have images touching! */
+	display:block;						/* Shouldn't be inline if not next to each other */
+	height:fit-content;
+}
+
+/* Float Layout Basic Classes */
+@supports not(display:grid){
+	.grid {
+		float: left;							/* Assumes we want everything to start on the left and go right */
+	}
+	.grid.right {float:right;}
+	.grid.rowStart {clear:left;}
+	/* Float Layout Responsive Classes */
+	.grid[class*="x-"]{width:100%;}
+	/* Anything bigger than phone. */
+	@media screen and (min-width:769px) and (max-resolution:143dpi){
+		.grid{display: inline-block;		/* Makes the divs play nice */}
+		.grid.x-0 { display:none;}
+		.grid.x-1 { width:calc(100% * 1 /12);}
+		.grid.x-2 { width:calc(100% * 2 /12); }
+		.grid.x-3 { width:calc(100% * 3 /12); }
+		.grid.x-4 { width:calc(100% * 4 /12); }
+		.grid.x-5 { width:calc(100% * 5 /12); }
+		.grid.x-6 { width:calc(100% * 6 /12); }
+		.grid.x-7 { width:calc(100% * 7 /12); }
+		.grid.x-8 { width:calc(100% * 8 /12);}
+		.grid.x-9 { width:calc(100% * 9 /12); }
+		.grid.x-10{ width:calc(100% * 10/12); }
+		.grid.x-11{ width:calc(100% * 11/12); }
+		.grid.x-12{ width:calc(100% * 12/12); }
+	}
+	/* Tablet */
+	@media screen and (min-width:769px) and (max-width:1024px),(min-width:1024px) and (min-resolution: 144dpi){
+		.grid.mx-0 { display:none; }
+		.grid.mx-1 { width:calc(100% * 1 /12); }
+		.grid.mx-2 { width:calc(100% * 2 /12); }
+		.grid.mx-3 { width:calc(100% * 3 /12); }
+		.grid.mx-4 { width:calc(100% * 4 /12); }
+		.grid.mx-5 { width:calc(100% * 5 /12); }
+		.grid.mx-6 { width:calc(100% * 6 /12); }
+		.grid.mx-7 { width:calc(100% * 7 /12); }
+		.grid.mx-8 { width:calc(100% * 8 /12); }
+		.grid.mx-9 { width:calc(100% * 9 /12); }
+		.grid.mx-10{ width:calc(100% * 10/12); }
+		.grid.mx-11{ width:calc(100% * 11/12); }
+		.grid.mx-12{ width:calc(100% * 12/12); }
+	}
+	/* Desktop */
+	@media screen and (min-width:1024px) and (max-resolution: 143dpi){
+		.grid.rowStartD{ clear:left; }
+	}
+}
+@supports(display:grid){
+	.gridContainer{
+		display:grid;
+		grid-auto-rows:max-content;
+		grid-template-columns:repeat(12, 1fr);
+	}
+	.grid{
+		float:none;
+	}
+	.grid.rowStart{grid-column-start:1;}
+	.grid[class*="x-"]{ grid-column-end:span 12; }
+	/* Anything bigger than phone. */
+	@media screen and (min-width:769px) and (max-resolution:143dpi){
+		.grid.x-0 { display:none; }
+		.grid.x-1 { grid-column-end:span 1; }
+		.grid.x-2 { grid-column-end:span 2;}
+		.grid.x-3 { grid-column-end:span 3; }
+		.grid.x-4 { grid-column-end:span 4; }
+		.grid.x-5 { grid-column-end:span 5; }
+		.grid.x-6 { grid-column-end:span 6; }
+		.grid.x-7 { grid-column-end:span 7; }
+		.grid.x-8 { grid-column-end: span 8;}
+		.grid.x-9 { grid-column-end:span 9; }
+		.grid.x-10{ grid-column-end:span 10; }
+		.grid.x-11{ grid-column-end:span 11; }
+		.grid.x-12{ grid-column-end:span 12; }
+	}
+	/* Tablet */
+	@media screen and (min-width:769px) and (max-width:1024px),(min-width:1024px) and (min-resolution: 144dpi){
+		.grid.x-0  { display:initial }
+		.grid.mx-0 { display:none; }
+		.grid.mx-1 { grid-column-end:span 1; }
+		.grid.mx-2 { grid-column-end:span 2;}
+		.grid.mx-3 { grid-column-end:span 3; }
+		.grid.mx-4 { grid-column-end:span 4; }
+		.grid.mx-5 { grid-column-end:span 5; }
+		.grid.mx-6 { grid-column-end:span 6; }
+		.grid.mx-7 { grid-column-end:span 7; }
+		.grid.mx-8 { grid-column-end:span 8; }
+		.grid.mx-9 { grid-column-end:span 9; }
+		.grid.mx-10{ grid-column-end:span 10; }
+		.grid.mx-11{ grid-column-end:span 11; }
+		.grid.mx-12{ grid-column-end:span 12; }
+	}
+
+}
+
+/******* Nav Setup *******/
+nav{
+	display:block;
+	width:100%;
+	min-height:3em;
+	text-align:center;
+}
+nav *{ 
+	color:inherit;
+	background-color:inherit;
+	font-family:inherit;
+}
+nav ul li a, nav ul button{
+	font-size:1.1em;
+	line-height:3rem;
+	width:100%;
+	display:block;
+}
+nav .dropBox ul.dropList{
+	display:block;
+	overflow:hidden;
+	max-height:0;
+	transition:max-height .5s;
+	will-change:max-height;
+	position:absolute;
+	width:100%;
+}
+nav .dropBox ul.dropList li{ clear:both;float:none;	}
+nav .dropBox ul.dropList li a{ background-color:white;	}
+/* Anything not phone */
+@media screen and (min-width:769px) and (max-resolution:143dpi){
+	nav ul li, nav ul button{
+		min-width:10vw;
+		float:left;
+	}
+	nav ul li a{
+		min-width:10vw;
+		display:inline-block;
+	}
+	nav .dropBox ul.dropList{
+		margin-top:3em;
+		width:auto;
+	}
+}
+/******* Footer *******/
+body { min-height:100vh;	/* Forces footer to bottom of the page */ }
+main{	min-height:95vh; width:100vw;}
+main:after{
+	content:"";
+	clear:both;
+	display:inherit;
+}
+footer{
+	position:absolute;
+	/*bottom:0;
+	left:0;*/
+	height:5vh;
+	width:100vw;
+	text-align:center;
+	line-height:5vh;
+}

@@ -1,0 +1,18 @@
+/*
+	Stylesheet by 0c370t, do not redistribute without written consent
+
+	Font sizes for this sheet are defined with vh units to help ease the transition across devices to a relative and appropriate size.
+*/
+
+table .x-1 {width:8.3%;}
+table .x-2 {width:16.6%;}
+table .x-3 {width:25%;}
+table .x-4 {width:33.3%;}
+table .x-5 {width:41.6%;}
+table .x-6 {width:50%;}
+table .x-7 {width:58.3%;}
+table .x-8 {width:66.6%;}
+table .x-9 {width:75%;}
+table .x-10{width:83.3%;}
+table .x-11{width:91.6%;}
+table .x-12{width:100%;}

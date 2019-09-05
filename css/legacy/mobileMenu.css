@@ -1,0 +1,66 @@
+/*
+	Stylesheet by 0c370t, do not redistribute without written consent
+*/
+
+/*** Header Styles ***/
+header.grid #menuButton{
+	/* Used for mobile menu display */
+	display:none; /* Do not touch */
+}
+
+/** Header Responsive Styles **/
+/* Phones and Tablets that pretend to not be tablets */
+@media screen and (max-width:768px) and (min-resolution: 144dpi){
+	header.grid #menuButton{
+		/* Used for mobile menu display */
+		display:block; /* Do not touch */
+		float: right; /* Do not touch */
+		position:absolute;
+		bottom:0;
+		right:0;
+		z-index:100;
+	}
+	header.grid nav{
+		display:none;
+		z-index:100;
+	}
+}
+@media screen and (max-width:768px) and (min-resolution: 144dpi){
+	header.grid{
+	}
+	header.grid #menuButton{
+		/* Used for mobile menu display */
+		display:block; /* Do not touch */
+		float: right; /* Do not touch */
+		/* Design Stylings */
+		height: 10vh;
+		width: 15vw;
+		padding:1.5vh;
+	}
+}
+/*** Navbar Styles ***/
+header.grid nav img#closeButton{
+	/* Used for mobile menu display */
+	display:none; /* Do not touch */
+	float:right;
+	transition: background-color .5s;
+}
+/** Navbar Responsive Styles **/
+/* Phones and Tablets that pretend to not be tablets */.
+@media screen and (max-width:768px) and (min-resolution: 144dpi){ 
+	#headerNav {
+		display:none;
+		width: 25vw;
+		margin-left: 75vw;
+		height: auto;
+		min-height: 10vh;
+	}
+	header.grid nav a, header.grid nav img#closeButton{
+		float:none;
+	}
+	header.grid nav img#closeButton{
+		/* Used for mobile menu display */
+		display:inherit; /* Do not touch */
+    margin: 0 auto;
+	}
+}
